@@ -4,7 +4,7 @@ The files that I have added my solution to are Bags.scala, Interpreter.scala and
 
 ## Final Grade
 
-This solution passed all of the automatic tests:
+This solution passed all of the automatic tests: <br />
 *************************** Results ************************** <br />
 * Exercise 1: Bag operations                           12/12 * <br />
 * Exercise 2: Subtyping                                26/26 * <br />
