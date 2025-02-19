@@ -1,0 +1,3 @@
+sig f : {| <a: int, b: int> |} -> {| int |} 
+let fun f(x) = {|y.a + y.b | y <- x |} in 
+f {| <a=1,b=2,c="asdf" > |}

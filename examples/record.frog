@@ -1,0 +1,1 @@
+let proj = (\ x . x.l) : <l:int> -> int in proj(<l=42>)

@@ -1,0 +1,16 @@
+// This file contains some examples that should be rejected.
+// Test each of them by commenting out others.
+
+let illTyped1 = case (select some 42) : [some:int, none:int] of {none z -> 0}
+in
+
+let illTyped2 = <foo = 42>.bar
+in
+
+let illType3 = ((\ x . x.bar) : <foo: int, bar:int> -> int) (<foo = 42>)
+in
+
+let illType4 = (\ y . ((\ x . x.bar) : <foo: int, bar:int> -> int) y) : <bar: int> -> int
+in
+
+42

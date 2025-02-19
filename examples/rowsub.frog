@@ -1,0 +1,52 @@
+// Subtyping examples from the paper Structural Subtyping as Parametric Polymorphism
+
+// simple variant subtyping
+sig getAge : [age:int, year:int] -> int
+let fun getAge(x) = case x of {
+  age y -> y,
+  year y -> 2024 - y
+}
+in
+let p1 = select year 1984
+in
+let p2 = select age 9
+in
+let res1 = (getAge p1, getAge p2)
+in
+
+// simple record subtyping
+sig getName : <name:string> -> string
+let fun getName(x) = x.name
+in
+let alice = <name = "Alice", age = 9>
+in
+let bob = <name = "Bob", year = 1984>
+in
+let res2 = (getName alice, getName bob)
+in
+
+// nested record subtyping
+sig getChildName : <child: <name: string>> -> string
+let fun getChildName(x) = getName (x.child)
+in
+let carol = <name = "Carol", child = alice>
+in
+let res3 = getChildName carol
+in
+
+// nested variant subtyping
+sig parseAge : [raw: [year: int]] -> int
+let fun parseAge(x) = case x of {
+  raw y -> getAge y
+}
+in
+let data = select raw p1
+in
+let res4 = parseAge data
+in
+
+< res1 = res1
+, res2 = res2
+, res3 = res3
+, res4 = res4
+>

@@ -1,0 +1,25 @@
+let piBag = {|3, 1, 4, 1, 5, 9|} in
+let res1 = count(piBag, 1) in
+
+let piBag1 = {|x+1 | x <- piBag|}
+in let res2 = count(piBag1, 10)
+in
+
+let piBag2 = {|x | x <- piBag, y <- piBag1, x == y |}
+in let res3 = count(piBag2, 5)
+in
+
+let piBag3 = {| xx+y | x <- piBag, let xx = x*x, y <- piBag1|}
+in let res4 = count(piBag3, 27)
+in
+
+let piBag4 = sum(diff(piBag, piBag1), {|x | x <- piBag, x < 5|})
+in let res5 = count(piBag4, 3)
+in
+
+< res1 = res1
+, res2 = res2
+, res3 = res3
+, res4 = res4
+, res5 = res5
+>

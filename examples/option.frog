@@ -1,0 +1,3 @@
+sig f : [some: int, none: unit] -> int 
+let fun f(x) = case x of {some y -> y, none z -> 0} in
+f(select some 42)

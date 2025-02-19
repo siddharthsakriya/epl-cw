@@ -1,0 +1,3 @@
+sig f : int -> {| int |} 
+let fun f(x) = {|x + 1|} in 
+flatMap({|1, 2, 3|}, f)
